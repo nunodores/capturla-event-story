@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-pink-50 to-rose-50 dark:from-orange-950/20 dark:via-pink-950/20 dark:to-rose-950/20" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -18,18 +18,19 @@ const Hero = () => {
                 Interactive Events Platform
               </span>
             </div>
-            
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Your Event's <br />
               <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
                 Private Universe.
               </span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-2xl">
-              Go beyond the hashtag. Captura creates a vibrant, interactive space for your guests to share photos, play games, and build a collective story of your event—all in one secure, beautiful place.
+              Go beyond the hashtag. Captura creates a vibrant, interactive space for your guests to share photos, play
+              games, and build a collective story of your event—all in one secure, beautiful place.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <a href="#pricing">
                 <Button variant="hero" size="xl" className="group">
@@ -43,12 +44,10 @@ const Hero = () => {
                 </Button>
               </a>
             </div>
-            
-            <p className="text-sm text-muted-foreground pt-2">
-              Set up in minutes. Simple and secure payment.
-            </p>
+
+            <p className="text-sm text-muted-foreground pt-2">Set up in minutes. Simple and secure payment.</p>
           </div>
-          
+
           {/* Phone Mockup */}
           <div className="relative flex items-center justify-center lg:justify-end">
             <div className="relative animate-float">
@@ -56,17 +55,17 @@ const Hero = () => {
               <div className="relative w-[300px] md:w-[340px] h-[600px] md:h-[680px] rounded-[3rem] bg-foreground shadow-2xl p-3">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-foreground rounded-b-3xl z-10" />
-                
+
                 {/* Screen with scrollable content */}
                 <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-background">
                   <div className="w-full h-full overflow-y-auto scrollbar-hide scroll-smooth" id="phone-screen">
-                    <img 
-                      src={heroPhone} 
-                      alt="Captura App Interface showcasing real-time event feed" 
-                      className="w-full h-auto object-cover"
+                    <img
+                      src={heroPhone}
+                      alt="Captura App Interface showcasing real-time event feed"
+                      className="w-full h-auto"
                     />
                   </div>
-                  
+
                   {/* Scroll Indicator */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce">
                     <div className="flex flex-col items-center gap-1">
