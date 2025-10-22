@@ -28,7 +28,7 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 25 95% 60%;
     --radius: 0.75rem;
-    
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -59,7 +59,7 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 25 95% 60%;
-    
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -91,14 +91,25 @@ All colors MUST be HSL.
 
   /* Auto-scroll animation for phone mockup */
   @keyframes gentle-scroll {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
       transform: translateY(-20px);
     }
   }
-
+  @font-face {
+    font-family: "Bespoke";
+    src: url("/fonts/BespokeStencil-Variable.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+  .damion-regular {
+    font-family: "Bespoke", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
   #phone-screen:hover ~ .animate-bounce {
     animation: none;
     opacity: 0;
