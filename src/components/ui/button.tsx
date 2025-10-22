@@ -9,13 +9,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_4px_20px_hsl(var(--primary)/0.3)] hover:shadow-[0_6px_30px_hsl(var(--primary)/0.4)] hover:scale-105",
+        default: "bg-gradient-to-r from-primary via-secondary to-accent text-primary-foreground hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-[0_4px_20px_hsl(var(--secondary)/0.3)] hover:shadow-[0_6px_30px_hsl(var(--secondary)/0.4)] hover:scale-105",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        outline: "border border-input bg-background hover:bg-accent/10 hover:border-accent transition-all duration-300",
+        secondary: "bg-gradient-to-r from-secondary to-accent text-secondary-foreground hover:opacity-90 shadow-lg transition-all duration-300",
+        ghost: "hover:bg-accent/10 hover:text-accent transition-all duration-300",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-[0_8px_30px_hsl(var(--primary)/0.4)] hover:shadow-[0_12px_40px_hsl(var(--primary)/0.5)] hover:scale-105",
+        hero: "bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 text-white shadow-[0_8px_30px_rgba(251,146,60,0.4)] hover:shadow-[0_12px_40px_rgba(251,146,60,0.6)] hover:scale-105 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

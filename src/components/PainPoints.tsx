@@ -5,19 +5,19 @@ const solutions = [
     icon: Download,
     title: "Centralize Everything",
     description: "One link is all you need. Guests join your private event space to view and share photos & videos in a real-time stream.",
-    gradient: "from-primary to-primary-glow",
+    gradient: "from-orange-400 to-pink-500",
   },
   {
     icon: MessageCircle,
     title: "Engage Everyone",
     description: "From ice-breaker games to collaborative photo mosaics, give your guests fun ways to interact and connect.",
-    gradient: "from-secondary to-teal-400",
+    gradient: "from-pink-400 to-rose-500",
   },
   {
     icon: ImageOff,
     title: "Own Your Story",
     description: "Download every high-resolution photo and video after the event. Your collective memory, forever yours.",
-    gradient: "from-accent to-purple-400",
+    gradient: "from-rose-400 to-red-500",
   },
 ];
 
@@ -27,7 +27,7 @@ const PainPoints = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Tired of a Thousand <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Scattered Memories?</span>
+            Tired of a Thousand <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Scattered Memories?</span>
           </h2>
           <div className="max-w-2xl mx-auto space-y-4">
             <p className="text-xl text-muted-foreground">

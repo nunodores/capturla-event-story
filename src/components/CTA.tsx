@@ -9,10 +9,10 @@ const CTA = () => {
       <div className="container mx-auto max-w-2xl">
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Ready to <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Get Started?</span>
+            Ready to <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Get Started?</span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            Contact us to learn how Capturla can make your event unforgettable.
+            Book a demo to learn how Captura can make your event unforgettable.
           </p>
         </div>
         
@@ -72,7 +72,7 @@ const CTA = () => {
             </div>
             
             <Button variant="hero" size="lg" className="w-full">
-              Send Request
+              Book a Demo
             </Button>
           </form>
         </div>

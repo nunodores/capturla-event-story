@@ -7,8 +7,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
-            <a href="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Capturla
+            <a href="/" className="text-2xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
+              Captura
             </a>
             
             <div className="hidden md:flex items-center gap-6">
@@ -28,12 +28,16 @@ const Navbar = () => {
           </div>
           
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="hidden md:inline-flex">
-              Sign In
-            </Button>
-            <Button variant="default">
-              Book Demo
-            </Button>
+            <a href="#pricing">
+              <Button variant="outline" className="hidden md:inline-flex">
+                Pricing
+              </Button>
+            </a>
+            <a href="#contact">
+              <Button variant="hero">
+                Book Demo
+              </Button>
+            </a>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="w-5 h-5" />
             </Button>

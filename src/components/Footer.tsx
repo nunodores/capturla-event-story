@@ -4,8 +4,8 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Capturla
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
+              Captura
             </h3>
             <p className="text-sm text-muted-foreground">
               Making every event memorable through interactive shared experiences.
@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© 2025 Capturla. All rights reserved.</p>
+          <p>© 2025 Captura. All rights reserved.</p>
         </div>
       </div>
     </footer>

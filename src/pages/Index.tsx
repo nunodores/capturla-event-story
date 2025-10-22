@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PainPoints from "@/components/PainPoints";
 import Features from "@/components/Features";
+import VideoDemo from "@/components/VideoDemo";
 import EventTypes from "@/components/EventTypes";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -14,6 +15,7 @@ const Index = () => {
         <Hero />
         <PainPoints />
         <Features />
+        <VideoDemo />
         <EventTypes />
         <CTA />
       </main>
