@@ -55,28 +55,28 @@ const EventTypes = () => {
   return (
     <section id="events" className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             One Platform. <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Infinite Occasions.</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
             From intimate gatherings to massive celebrations, Captura is built to make any event more memorable.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {eventTypes.map((event, index) => {
             const Icon = event.icon;
             return (
               <div
                 key={event.type}
-                className={`group relative p-6 rounded-2xl border border-border ${event.bgPattern} hover:shadow-xl transition-all duration-300 animate-fade-in`}
+                className={`group relative p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-border ${event.bgPattern} hover:shadow-xl transition-all duration-300 animate-fade-in`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${event.color} mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
-                  <Icon className="w-7 h-7 text-white" />
+                <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${event.color} mb-3 sm:mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{event.label}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{event.label}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{event.description}</p>
               </div>
             );

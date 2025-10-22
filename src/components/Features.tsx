@@ -50,33 +50,33 @@ const Features = () => {
   return (
     <section id="features" className="py-20 px-4">
       <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold px-4">
             The Ultimate Experience for <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Guests & Hosts</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-4">
             We built Captura to be effortlessly fun for your guests and powerfully simple for you.
           </p>
         </div>
         
         {/* Guest Features */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-8 text-center">For Your Guests</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-center">For Your Guests</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={feature.title}
-                  className="group p-6 rounded-2xl bg-gradient-to-br from-card to-muted/20 border border-border hover:shadow-2xl transition-all duration-500 animate-slide-up"
+                  className="group p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-card to-muted/20 border border-border hover:shadow-2xl transition-all duration-500 animate-slide-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="flex flex-col items-center text-center gap-4">
-                    <div className="flex-shrink-0 p-4 rounded-2xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:scale-110 transition-transform shadow-lg">
-                      <Icon className="w-7 h-7 text-white" />
+                  <div className="flex flex-col items-center text-center gap-3 sm:gap-4">
+                    <div className="flex-shrink-0 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:scale-110 transition-transform shadow-lg">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold">{feature.title}</h3>
+                    <div className="space-y-1 sm:space-y-2">
+                      <h3 className="text-lg sm:text-xl font-bold">{feature.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
@@ -90,22 +90,22 @@ const Features = () => {
         
         {/* Admin Features */}
         <div>
-          <h3 className="text-2xl font-semibold mb-8 text-center">For You, The Host</h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-center">For You, The Host</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {adminFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={feature.title}
-                  className="group p-6 rounded-2xl bg-gradient-to-br from-card to-muted/20 border border-border hover:shadow-2xl transition-all duration-500 animate-slide-up"
+                  className="group p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-card to-muted/20 border border-border hover:shadow-2xl transition-all duration-500 animate-slide-up"
                   style={{ animationDelay: `${(index + 4) * 100}ms` }}
                 >
-                  <div className="flex flex-col items-center text-center gap-4">
-                    <div className="flex-shrink-0 p-4 rounded-2xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:scale-110 transition-transform shadow-lg">
-                      <Icon className="w-7 h-7 text-white" />
+                  <div className="flex flex-col items-center text-center gap-3 sm:gap-4">
+                    <div className="flex-shrink-0 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:scale-110 transition-transform shadow-lg">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold">{feature.title}</h3>
+                    <div className="space-y-1 sm:space-y-2">
+                      <h3 className="text-lg sm:text-xl font-bold">{feature.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
