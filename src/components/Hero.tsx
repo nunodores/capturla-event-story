@@ -50,15 +50,17 @@ const Hero = () => {
           </div>
           
           {/* Phone Mockup */}
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center lg:justify-end">
             <div className="relative animate-float">
-              <img 
-                src={heroPhone} 
-                alt="Captura App Interface" 
-                className="w-full max-w-md drop-shadow-2xl"
-              />
+              <div className="relative w-[280px] md:w-[320px] rounded-[3rem] overflow-hidden border-8 border-foreground/10 shadow-2xl">
+                <img 
+                  src={heroPhone} 
+                  alt="Captura App Interface" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 via-pink-400/20 to-rose-400/20 blur-3xl -z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-400/30 via-pink-400/30 to-rose-400/30 blur-3xl -z-10" />
             </div>
           </div>
         </div>

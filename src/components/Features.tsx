@@ -21,6 +21,11 @@ const features = [
     title: 'Event Playlist',
     description: 'Let your guests curate the perfect soundtrack for your special day with Spotify integration',
   },
+  {
+    icon: Play,
+    title: 'And more...',
+    description: 'Discover all the interactive features designed to make your event unforgettable',
+  },
 ];
 
 const adminFeatures = [
@@ -57,7 +62,7 @@ const Features = () => {
         {/* Guest Features */}
         <div className="mb-12">
           <h3 className="text-2xl font-semibold mb-8 text-center">For Your Guests</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
