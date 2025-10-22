@@ -33,7 +33,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <a href="#pricing">
                 <Button variant="hero" size="xl" className="group">
-                  Create Your Event for Free
+                  Create Your Event
                   <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                 </Button>
               </a>
@@ -45,19 +45,28 @@ const Hero = () => {
             </div>
             
             <p className="text-sm text-muted-foreground pt-2">
-              No credit card required. Set up in minutes.
+              Set up in minutes. Simple and secure payment.
             </p>
           </div>
           
           {/* Phone Mockup */}
           <div className="relative flex items-center justify-center lg:justify-end">
             <div className="relative animate-float">
-              <div className="relative w-[280px] md:w-[320px] rounded-[3rem] overflow-hidden border-8 border-foreground/10 shadow-2xl">
-                <img 
-                  src={heroPhone} 
-                  alt="Captura App Interface" 
-                  className="w-full h-auto object-cover"
-                />
+              {/* iPhone Frame */}
+              <div className="relative w-[280px] md:w-[320px] h-[560px] md:h-[640px] rounded-[3rem] bg-foreground/90 shadow-2xl p-3">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-foreground rounded-b-3xl z-10" />
+                
+                {/* Screen with scrollable content */}
+                <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-background">
+                  <div className="w-full h-full overflow-y-auto scrollbar-hide">
+                    <img 
+                      src={heroPhone} 
+                      alt="Captura App Interface" 
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </div>
               </div>
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400/30 via-pink-400/30 to-rose-400/30 blur-3xl -z-10" />
