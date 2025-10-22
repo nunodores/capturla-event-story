@@ -1,7 +1,36 @@
 import { Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 
 const Pricing = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handlePayment = async () => {
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-payment", {
+        body: {},
+      });
+
+      if (error) throw error;
+
+      if (data?.url) {
+        window.open(data.url, "_blank");
+      }
+    } catch (error) {
+      console.error("Payment error:", error);
+      toast({
+        title: "Payment failed",
+        description: "Unable to start payment. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="pricing" className="py-20  bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto">
@@ -117,8 +146,14 @@ const Pricing = () => {
             </div>
 
             <div className="text-center">
-              <Button variant="hero" size="xl" className="group">
-                Start Sharing!
+              <Button 
+                variant="hero" 
+                size="xl" 
+                className="group"
+                onClick={handlePayment}
+                disabled={loading}
+              >
+                {loading ? "Opening Checkout..." : "Start Sharing!"}
                 <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               </Button>
             </div>
