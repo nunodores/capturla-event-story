@@ -72,11 +72,11 @@ const Features = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex flex-col items-center text-center gap-4">
-                    <div className="flex-shrink-0 p-3 rounded-xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="flex-shrink-0 p-4 rounded-2xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:scale-110 transition-transform shadow-lg">
+                      <Icon className="w-7 h-7 text-white" />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-lg font-semibold">{feature.title}</h3>
+                      <h3 className="text-xl font-bold">{feature.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
@@ -101,11 +101,11 @@ const Features = () => {
                   style={{ animationDelay: `${(index + 4) * 100}ms` }}
                 >
                   <div className="flex flex-col items-center text-center gap-4">
-                    <div className="flex-shrink-0 p-3 rounded-xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="flex-shrink-0 p-4 rounded-2xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:scale-110 transition-transform shadow-lg">
+                      <Icon className="w-7 h-7 text-white" />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-lg font-semibold">{feature.title}</h3>
+                      <h3 className="text-xl font-bold">{feature.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>

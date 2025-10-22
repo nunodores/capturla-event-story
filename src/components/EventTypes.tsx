@@ -73,11 +73,11 @@ const EventTypes = () => {
                 className={`group relative p-6 rounded-2xl border border-border ${event.bgPattern} hover:shadow-xl transition-all duration-300 animate-fade-in`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${event.color} mb-4 group-hover:scale-110 transition-transform`}>
-                  <Icon className="w-6 h-6 text-white" />
+                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${event.color} mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                  <Icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{event.label}</h3>
-                <p className="text-muted-foreground">{event.description}</p>
+                <h3 className="text-xl font-bold mb-2">{event.label}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{event.description}</p>
               </div>
             );
           })}

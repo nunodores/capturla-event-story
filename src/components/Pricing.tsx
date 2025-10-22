@@ -21,8 +21,8 @@ const Pricing = () => {
         </div>
 
         {/* Main Pricing Card */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <div className="relative p-8 md:p-12 rounded-3xl border-2 border-border bg-gradient-to-br from-card to-muted/20 hover:shadow-2xl transition-all duration-500">
+        <div className="max-w-5xl mx-auto mb-12">
+          <div className="relative p-8 md:p-12 lg:p-16 rounded-3xl border-2 border-border bg-gradient-to-br from-card to-muted/20 hover:shadow-2xl transition-all duration-500">
             <div className="absolute top-0 right-8 transform -translate-y-1/2">
               <span className="px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 text-white text-sm font-bold shadow-lg">
                 RECOMMENDED

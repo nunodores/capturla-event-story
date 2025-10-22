@@ -52,22 +52,11 @@ const Hero = () => {
           {/* Phone Mockup */}
           <div className="relative flex items-center justify-center lg:justify-end">
             <div className="relative animate-float">
-              {/* iPhone Frame */}
-              <div className="relative w-[280px] md:w-[320px] h-[560px] md:h-[640px] rounded-[3rem] bg-foreground/90 shadow-2xl p-3">
-                {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-foreground rounded-b-3xl z-10" />
-                
-                {/* Screen with scrollable content */}
-                <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-background">
-                  <div className="w-full h-full overflow-y-auto scrollbar-hide">
-                    <img 
-                      src={heroPhone} 
-                      alt="Captura App Interface" 
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
+              <img 
+                src={heroPhone} 
+                alt="Captura App Interface showcasing real-time event feed" 
+                className="w-full max-w-[320px] md:max-w-[360px] h-auto drop-shadow-2xl"
+              />
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400/30 via-pink-400/30 to-rose-400/30 blur-3xl -z-10" />
             </div>
