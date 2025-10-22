@@ -4,7 +4,7 @@ import heroPhone from "@/assets/hero-phone.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 sm:pt-16">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-pink-50 to-rose-50 dark:from-orange-950/20 dark:via-pink-950/20 dark:to-rose-950/20" />
 
@@ -49,7 +49,7 @@ const Hero = () => {
           </div>
 
           {/* Phone Mockup */}
-          <div className="relative flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
+          <div className="relative flex items-center justify-center lg:justify-end mt-8 lg:mt-0 pb-6 sm:pb-0  ">
             <div className="relative animate-float">
               {/* iPhone Frame */}
               <div className="relative w-[260px] sm:w-[300px] md:w-[340px] h-[520px] sm:h-[600px] md:h-[680px] rounded-[2.5rem] md:rounded-[3rem] bg-foreground shadow-2xl p-2 sm:p-3">
@@ -66,13 +66,7 @@ const Hero = () => {
                     />
                   </div>
 
-                  {/* Scroll Indicator */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce">
-                    <div className="flex flex-col items-center gap-1">
-                      <div className="w-1 h-8 bg-gradient-to-b from-transparent via-white to-transparent rounded-full opacity-60" />
-                      <div className="text-xs text-white/60 font-medium">Scroll</div>
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
               {/* Glow effect */}

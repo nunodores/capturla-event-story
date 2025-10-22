@@ -25,7 +25,7 @@ const PainPoints = () => {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12 md:mb-16 space-y-4 sm:space-y-6 px-4">
+        <div className="text-center mb-12 md:mb-16 space-y-4 sm:space-y-6 ">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             Tired of a Thousand <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Scattered Memories?</span>
           </h2>

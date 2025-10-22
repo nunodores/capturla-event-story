@@ -1,34 +1,46 @@
-import { Heart, Users, Cake, Sparkles, Plane, Building2 } from "lucide-react";
+import { Heart, Cake, Sparkles, Plane, Building2, Music } from "lucide-react";
+import type { ElementType } from 'react';
 
-const eventTypes = [
+// 1. DATA & TYPES
+// We define a TypeScript interface for type-safety and keep the event data here.
+interface EventType {
+  type: string;
+  label: string;
+  description: string;
+  icon: ElementType;
+  color: string;
+  bgPattern: string;
+}
+
+const eventTypes: EventType[] = [
   {
-    type: 'wedding',
-    label: 'Wedding',
-    description: 'Celebrate your special day with guests',
+    type: 'weddings',
+    label: 'Weddings',
+    description: 'Cherish every moment of your special day with a shared, interactive album.',
     icon: Heart,
     color: 'from-rose-400 to-pink-500',
     bgPattern: 'bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20'
   },
   {
-    type: 'team_building',
-    label: 'Team Building',
-    description: 'Engage your team with fun activities',
-    icon: Users,
-    color: 'from-blue-400 to-cyan-500',
-    bgPattern: 'bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20'
+    type: 'corporate_events',
+    label: 'Corporate Events',
+    description: 'Boost engagement at conferences, off-sites, and team-building retreats.',
+    icon: Building2,
+    color: 'from-sky-400 to-blue-500',
+    bgPattern: 'bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20'
   },
   {
-    type: 'birthday',
-    label: 'Birthday Party',
-    description: 'Celebrate birthdays with friends',
+    type: 'birthday_parties',
+    label: 'Birthday Parties',
+    description: 'Make birthday wishes last forever with photos and videos from all your friends.',
     icon: Cake,
-    color: 'from-purple-400 to-pink-500',
-    bgPattern: 'bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20'
+    color: 'from-purple-400 to-indigo-500',
+    bgPattern: 'bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-950/20 dark:to-indigo-950/20'
   },
   {
     type: 'bachelor_bachelorette',
-    label: 'Bachelor(ette)',
-    description: 'Plan unforgettable parties',
+    label: 'Bachelor / Bachelorette',
+    description: 'Capture all the unforgettable moments from the last big night out.',
     icon: Sparkles,
     color: 'from-amber-400 to-orange-500',
     bgPattern: 'bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20'
@@ -36,51 +48,57 @@ const eventTypes = [
   {
     type: 'group_travel',
     label: 'Group Travel',
-    description: 'Coordinate activities for group trips',
+    description: 'Consolidate everyone\'s travel photos into one amazing trip itinerary.',
     icon: Plane,
-    color: 'from-sky-400 to-blue-500',
-    bgPattern: 'bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20'
+    color: 'from-teal-400 to-cyan-500',
+    bgPattern: 'bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20'
   },
   {
-    type: 'hotel_event',
-    label: 'Hotel Event',
-    description: 'Manage conferences and gatherings',
-    icon: Building2,
-    color: 'from-slate-400 to-gray-500',
-    bgPattern: 'bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-950/20 dark:to-gray-950/20'
+    type: 'festivals_concerts',
+    label: 'Festivals & Concerts',
+    description: 'Connect with fellow fans and relive the experience from every angle.',
+    icon: Music,
+    color: 'from-lime-400 to-green-500',
+    bgPattern: 'bg-gradient-to-br from-lime-50 to-green-50 dark:from-lime-950/20 dark:to-green-950/20'
   },
 ];
 
+// 2. CARD SUB-COMPONENT
+// A small, internal component to keep the mapping logic in the main component clean.
+const EventTypeCard = ({ event, index }: { event: EventType; index: number }) => {
+  const Icon = event.icon;
+  return (
+    <a 
+  className={`group relative flex flex-col items-center text-center p-6 rounded-2xl border border-border/80 transition-all duration-300 ease-in-out animate-fade-in hover:shadow-lg hover:border-border hover:-translate-y-1 ${event.bgPattern} w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.33%-1rem)] max-w-sm`}
+  style={{ animationDelay: `${index * 100}ms`, willChange: 'transform' }}
+>
+  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${event.color} mb-4 shadow-md group-hover:scale-110 transition-transform`}>
+    <Icon className="w-7 h-7 text-white" />
+  </div>
+  <h3 className="text-xl font-bold mb-2 text-foreground">{event.label}</h3>
+  <p className="text-sm text-muted-foreground leading-relaxed">{event.description}</p>
+</a>
+  );
+};
+
+// 3. MAIN COMPONENT
 const EventTypes = () => {
   return (
-    <section id="events" className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-4 px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+    <section id="events" className="py-20 sm:py-28 bg-gradient-to-b from-background to-muted/20">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             One Platform. <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Infinite Occasions.</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-            From intimate gatherings to massive celebrations, Captura is built to make any event more memorable.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            From intimate gatherings to massive celebrations, Captura is designed to make any event more engaging and memorable.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {eventTypes.map((event, index) => {
-            const Icon = event.icon;
-            return (
-              <div
-                key={event.type}
-                className={`group relative p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-border ${event.bgPattern} hover:shadow-xl transition-all duration-300 animate-fade-in`}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${event.color} mb-3 sm:mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
-                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{event.label}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{event.description}</p>
-              </div>
-            );
-          })}
+        <div className="flex flex-wrap justify-center gap-6">
+          {eventTypes.map((event, index) => (
+            <EventTypeCard key={event.type} event={event} index={index} />
+          ))}
         </div>
       </div>
     </section>

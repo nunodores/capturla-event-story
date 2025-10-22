@@ -2,11 +2,11 @@ import { Play } from "lucide-react";
 
 const VideoDemo = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-muted/20 to-background">
+    <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-8 sm:mb-12 space-y-4 sm:space-y-6 px-4">
+        <div className="text-center mb-8 sm:mb-12 space-y-4 sm:space-y-6 ">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            See <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Captura</span> in Action
+            See <span className="font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 text-transparent bg-clip-text damion-regular">Captura</span> in Action
           </h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
             Watch how easy it is to create an unforgettable interactive experience for your event
@@ -18,7 +18,7 @@ const VideoDemo = () => {
           <div className="absolute inset-0 flex items-center justify-center p-4">
             <div className="text-center space-y-4 sm:space-y-6">
               <div className="inline-flex p-6 sm:p-8 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 shadow-xl hover:scale-110 transition-transform cursor-pointer">
-                <Play className="w-12 h-12 sm:w-16 sm:h-16 text-white" fill="white" />
+                <Play className="w-6 h-6 sm:w-16 sm:h-16 text-white" fill="white" />
               </div>
               <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground/80">
                 Demo Video Coming Soon

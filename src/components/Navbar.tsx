@@ -15,7 +15,10 @@ const Navbar = () => {
             </a>
 
             <div className="hidden md:flex items-center gap-8">
-              <a href="#about" className="text-base font-medium text-foreground hover:text-primary transition-colors">
+  <a
+                href="/about"
+                className="text-base font-medium text-foreground hover:text-primary transition-colors"
+              >
                 About
               </a>
               <a
