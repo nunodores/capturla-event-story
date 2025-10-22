@@ -88,4 +88,20 @@ All colors MUST be HSL.
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Auto-scroll animation for phone mockup */
+  @keyframes gentle-scroll {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  #phone-screen:hover ~ .animate-bounce {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 }

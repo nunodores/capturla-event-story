@@ -52,11 +52,30 @@ const Hero = () => {
           {/* Phone Mockup */}
           <div className="relative flex items-center justify-center lg:justify-end">
             <div className="relative animate-float">
-              <img 
-                src={heroPhone} 
-                alt="Captura App Interface showcasing real-time event feed" 
-                className="w-full max-w-[320px] md:max-w-[360px] h-auto drop-shadow-2xl"
-              />
+              {/* iPhone Frame */}
+              <div className="relative w-[300px] md:w-[340px] h-[600px] md:h-[680px] rounded-[3rem] bg-foreground shadow-2xl p-3">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-foreground rounded-b-3xl z-10" />
+                
+                {/* Screen with scrollable content */}
+                <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-background">
+                  <div className="w-full h-full overflow-y-auto scrollbar-hide scroll-smooth" id="phone-screen">
+                    <img 
+                      src={heroPhone} 
+                      alt="Captura App Interface showcasing real-time event feed" 
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                  
+                  {/* Scroll Indicator */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce">
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-1 h-8 bg-gradient-to-b from-transparent via-white to-transparent rounded-full opacity-60" />
+                      <div className="text-xs text-white/60 font-medium">Scroll</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400/30 via-pink-400/30 to-rose-400/30 blur-3xl -z-10" />
             </div>
