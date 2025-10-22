@@ -47,8 +47,8 @@ const PaymentSuccess = () => {
 
     try {
       // TODO: Replace with your actual API URL
-      const API_URL = "YOUR_API_URL_HERE/api/auth/couple-register";
-      
+      const API_URL = "https://admin.captura.fun/api/auth/couple-register";
+
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
@@ -99,17 +99,11 @@ const PaymentSuccess = () => {
           <Card className="p-8 md:p-12">
             <div className="text-center mb-8">
               <CheckCircle className="w-16 h-16 mx-auto mb-4 text-green-500" />
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                🎉 Payment Successful!
-              </h1>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">🎉 Payment Successful!</h1>
               <p className="text-muted-foreground">
                 Thank you for your purchase. Complete your registration to get started.
               </p>
-              {sessionId && (
-                <p className="text-sm text-muted-foreground mt-2">
-                  Session ID: {sessionId}
-                </p>
-              )}
+              {sessionId && <p className="text-sm text-muted-foreground mt-2">Session ID: {sessionId}</p>}
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -157,20 +151,13 @@ const PaymentSuccess = () => {
                   type="password"
                   placeholder="Confirm your password"
                   value={formData.confirmPassword}
-                  onChange={(e) =>
-                    setFormData({ ...formData, confirmPassword: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                   required
                   minLength={8}
                 />
               </div>
 
-              <Button
-                type="submit"
-                className="w-full"
-                size="lg"
-                disabled={loading}
-              >
+              <Button type="submit" className="w-full" size="lg" disabled={loading}>
                 {loading ? (
                   <>
                     <Loader2 className="w-5 h-5 mr-2 animate-spin" />
