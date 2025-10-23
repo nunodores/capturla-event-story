@@ -10,7 +10,7 @@ const solutions = [
   {
     icon: MessageCircle,
     title: "Engage Everyone",
-    description: "From ice-breaker games to collaborative photo mosaics, give your guests fun ways to interact and connect.",
+    description: "From ice-breaker games to collaborative photo challenges, give your guests fun ways to interact and connect.",
     gradient: "from-pink-400 to-rose-500",
   },
   {
