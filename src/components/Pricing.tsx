@@ -7,11 +7,11 @@ import { toast } from "@/hooks/use-toast";
 const Pricing = () => {
   const [loading, setLoading] = useState(false);
 
-  const handlePayment = async () => {
+  const handlePayment = async (priceId: string) => {
     setLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke("create-payment", {
-        body: {},
+        body: { priceId },
       });
 
       if (error) throw error;
@@ -129,7 +129,7 @@ const Pricing = () => {
                 variant="hero"
                 size="xl"
                 className="group w-full"
-                onClick={handlePayment}
+                onClick={() => handlePayment("price_1SLPJ6GonZOSamDFwONRyJEB")}
                 disabled={loading}
               >
                 {loading ? "Opening Checkout..." : "Get Started"}
@@ -237,7 +237,7 @@ const Pricing = () => {
                 variant="hero"
                 size="xl"
                 className="group w-full"
-                onClick={handlePayment}
+                onClick={() => handlePayment("price_1SL4saGonZOSamDFmfUsWreB")}
                 disabled={loading}
               >
                 {loading ? "Opening Checkout..." : "Start Sharing!"}

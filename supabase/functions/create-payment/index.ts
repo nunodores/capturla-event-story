@@ -18,16 +18,21 @@ serve(async (req) => {
       apiVersion: "2025-08-27.basil",
     });
 
-    // Get email from request body if provided
-    const { email } = await req.json().catch(() => ({}));
+    // Get email and priceId from request body
+    const { email, priceId } = await req.json().catch(() => ({}));
     console.log("[CREATE-PAYMENT] Email provided:", email);
+    console.log("[CREATE-PAYMENT] Price ID:", priceId);
+
+    if (!priceId) {
+      throw new Error("Price ID is required");
+    }
 
     // Create checkout session
     const session = await stripe.checkout.sessions.create({
       customer_email: email,
       line_items: [
         {
-          price: "price_1SL4saGonZOSamDFmfUsWreB",
+          price: priceId,
           quantity: 1,
         },
       ],
