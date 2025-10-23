@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useHashLink } from "@/hooks/use-hash-link"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const handleHashLink = useHashLink();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
@@ -28,24 +30,27 @@ const Navbar = () => {
               >
                 About
               </a>
-              <a
-                href="#features"
+
+              <button
+                onClick={() => handleHashLink("#features")}
                 className="text-base font-medium text-foreground hover:text-primary transition-colors"
               >
                 Features
-              </a>
-              <a
-                href="#events"
+              </button>
+
+              <button
+                onClick={() => handleHashLink("#events")}
                 className="text-base font-medium text-foreground hover:text-primary transition-colors"
               >
                 Events
-              </a>
-              <a
-                href="#contact"
+              </button>
+
+              <button
+                onClick={() => handleHashLink("#contact")}
                 className="text-base font-medium text-foreground hover:text-primary transition-colors"
               >
                 Contact
-              </a>
+              </button>
             </div>
           </div>
 
@@ -86,27 +91,37 @@ const Navbar = () => {
             >
               About
             </a>
-            <a
-              href="#features"
-              onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-foreground hover:text-primary transition-colors w-full"
+
+            <button
+              onClick={() => {
+                handleHashLink("#features");
+                setIsOpen(false);
+              }}
+              className="text-base font-medium text-foreground hover:text-primary transition-colors w-full text-left"
             >
               Features
-            </a>
-            <a
-              href="#events"
-              onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-foreground hover:text-primary transition-colors w-full"
+            </button>
+
+            <button
+              onClick={() => {
+                handleHashLink("#events");
+                setIsOpen(false);
+              }}
+              className="text-base font-medium text-foreground hover:text-primary transition-colors w-full text-left"
             >
               Events
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-foreground hover:text-primary transition-colors w-full"
+            </button>
+
+            <button
+              onClick={() => {
+                handleHashLink("#contact");
+                setIsOpen(false);
+              }}
+              className="text-base font-medium text-foreground hover:text-primary transition-colors w-full text-left"
             >
               Contact
-            </a>
+            </button>
+
             <a href="#pricing" onClick={() => setIsOpen(false)} className="w-full">
               <Button variant="outline" className="w-full h-11">
                 Pricing
