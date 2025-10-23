@@ -56,16 +56,12 @@ const Navbar = () => {
 
           {/* Right side - Buttons */}
           <div className="flex items-center gap-4">
-            <a href="#pricing">
-              <Button variant="outline" className="hidden md:inline-flex h-11 px-6">
+              <Button variant="outline" onClick={() => handleHashLink("#pricing")} className="hidden md:inline-flex h-11 px-6">
                 Pricing
               </Button>
-            </a>
-            <a href="#contact">
-              <Button variant="hero" className="h-11 px-6">
+              <Button variant="hero" onClick={() => handleHashLink("#contact")} className="h-11 px-6">
                 Book Demo
               </Button>
-            </a>
 
             {/* Mobile Menu Button */}
             <Button
