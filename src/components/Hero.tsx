@@ -4,12 +4,12 @@ import heroPhone from "@/assets/hero-phone.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 sm:pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-pink-50 to-rose-50 dark:from-orange-950/20 dark:via-pink-950/20 dark:to-rose-950/20" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start justify-center justify-items-center">
           {/* Content */}
           <div className="text-center lg:text-left space-y-6 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 via-pink-100 to-rose-100 dark:from-orange-900/30 dark:via-pink-900/30 dark:to-rose-900/30 text-sm font-medium mb-4">
@@ -49,10 +49,10 @@ const Hero = () => {
           </div>
 
           {/* Phone Mockup */}
-          <div className="relative flex items-center justify-center lg:justify-end mt-8 lg:mt-0 pb-6 sm:pb-0  ">
+          <div className="relative flex items-center justify-center lg:justify-end mt-8 lg:mt-0 pb-12 sm:pb-12  ">
             <div className="relative animate-float">
               {/* iPhone Frame */}
-              <div className="relative w-[260px] sm:w-[300px] md:w-[340px] h-[520px] sm:h-[600px] md:h-[680px] rounded-[2.5rem] md:rounded-[3rem] bg-foreground shadow-2xl p-2 sm:p-3">
+              <div className="relative w-[260px] sm:w-[300px] md:w-[240px] h-[520px] sm:h-[600px] md:h-[490px] rounded-[2.5rem] md:rounded-[3rem] bg-foreground shadow-2xl p-2 sm:p-3">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-5 sm:h-7 bg-foreground rounded-b-2xl sm:rounded-b-3xl z-10" />
 
