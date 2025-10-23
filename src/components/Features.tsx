@@ -1,136 +1,73 @@
 import { Camera, Play, Calendar, Music, Settings, BarChart3, Image } from "lucide-react";
 
-const features = [
-  {
-    icon: Camera,
-    title: 'Real-Time Media Sharing',
-    description: 'Guests share photos and videos instantly in your private event network',
-  },
-  {
-    icon: Play,
-    title: 'Interactive Games',
-    description: 'Engage guests with quizzes, timeline challenges, and hashtag missions',
-  },
-  {
-    icon: Calendar,
-    title: 'Event Schedule',
-    description: 'Keep everyone informed with a live schedule of activities',
-  },
-  {
-    icon: Music,
-    title: 'Event Playlist',
-    description: 'Let your guests curate the perfect soundtrack for your special day with Spotify integration',
-  },
-  {
-    icon: Play,
-    title: 'And more...',
-    description: 'Discover all the interactive features designed to make your event unforgettable',
-  },
+const guestFeatures = [
+  { icon: Camera, title: "Share Moments", desc: "Instant photo & video sharing" },
+  { icon: Play, title: "Play Together", desc: "Fun quizzes, challenges & games" },
+  { icon: Calendar, title: "Stay on Track", desc: "Live schedule of your event" },
+  { icon: Music, title: "Your Playlist", desc: "Spotify-powered song requests" },
 ];
 
-const adminFeatures = [
-  {
-    icon: Settings,
-    title: 'Manage Everything',
-    description: 'Complete control over games, schedule, settings, and content moderation',
-  },
-  {
-    icon: BarChart3,
-    title: 'Live Analytics',
-    description: 'Track engagement, participation, and activity in real-time',
-  },
-  {
-    icon: Image,
-    title: 'Download Media',
-    description: 'Bulk download all photos and videos with one click',
-  },
+const hostFeatures = [
+  { icon: Settings, title: "Full Control", desc: "Manage games, schedule & guests" },
+  { icon: BarChart3, title: "Live Insights", desc: "Track engagement & activity" },
+  { icon: Image, title: "Download Media", desc: "Save all your event memories" },
 ];
-
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 overflow-hidden">
-      <div className="container mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20 space-y-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold ">
-            The Ultimate Experience for <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Guests & Hosts</span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-            We built Captura to be effortlessly fun for your guests and powerfully simple for you.
-          </p>
-        </div>
-        
-        {/* Guest Features - Fun & Playful */}
-        <div className="mb-20 md:mb-32">
-          <div className="text-center mb-10">
-            <span className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-orange-400/20 via-pink-400/20 to-rose-400/20 border border-orange-400/30 text-orange-400 font-semibold text-sm mb-3">
-              ✨ FOR YOUR GUESTS
-            </span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={feature.title}
-                  className="group relative p-6 rounded-3xl bg-gradient-to-br from-white to-orange-50 dark:from-zinc-900 dark:to-orange-950/20 border-2 border-orange-200 dark:border-orange-900/50 hover:border-orange-400 dark:hover:border-orange-600 hover:scale-105 hover:-translate-y-2 transition-all duration-500 animate-slide-up shadow-lg hover:shadow-2xl hover:shadow-orange-500/20"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex flex-col items-center text-center gap-4">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-rose-400 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                      <div className="relative p-4 rounded-2xl bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 group-hover:rotate-12 transition-transform">
-                        <Icon className="w-7 h-7 text-white" />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold bg-gradient-to-r from-orange-600 to-rose-600 dark:from-orange-400 dark:to-rose-400 bg-clip-text text-transparent">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
+    <section id="features" className="py-20">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          Made for <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Guests</span> &{" "}
+          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">Hosts</span>
+        </h2>
+        <p className="text-muted-foreground text-lg mb-12">
+          Captura keeps everyone connected and makes every event unforgettable.
+        </p>
+
+        {/* Guests */}
+        <div className="mb-16">
+          <span className="inline-block mb-8 px-6 py-2 text-sm font-semibold rounded-full bg-orange-50 text-orange-500 border border-orange-200">
+            ✨ For Guests
+          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {guestFeatures.map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex flex-col items-center gap-4">
+                  <div className="p-4 rounded-full bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 text-white">
+                    <Icon className="w-6 h-6" />
                   </div>
+                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <p className="text-sm text-zinc-500">{desc}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
-        
-        {/* Admin Features - Professional & Powerful */}
+
+        {/* Hosts */}
         <div>
-          <div className="text-center mb-10">
-            <span className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-indigo-400/20 border border-blue-400/30 text-blue-400 font-semibold text-sm mb-3">
-              🎯 FOR YOU, THE HOST
-            </span>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {adminFeatures.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={feature.title}
-                  className="group relative overflow-hidden p-8 rounded-3xl bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-indigo-400/20 hover:border-blue-500 hover:scale-105 transition-all duration-500 animate-slide-up"
-                  style={{ animationDelay: `${(index + 5) * 100}ms` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-                  
-                  <div className="relative flex flex-col items-center text-center gap-4">
-                    <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/50 group-hover:shadow-blue-400/70 group-hover:-rotate-6 transition-all">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-black">{feature.title}</h3>
-                      <p className="text-sm text-blue-900 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
+          <span className="inline-block mb-8 px-6 py-2 text-sm font-semibold rounded-full bg-blue-50 text-blue-500 border border-blue-200">
+            🎯 For Hosts
+          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {hostFeatures.map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex flex-col items-center gap-4">
+                  <div className="p-4 rounded-full bg-gradient-to-br from-blue-400 via-purple-400 to-indigo-400 text-white">
+                    <Icon className="w-6 h-6" />
                   </div>
+                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <p className="text-sm text-zinc-500">{desc}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
