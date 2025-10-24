@@ -10,11 +10,7 @@ const Pricing = () => {
   const [storageBasic, setStorageBasic] = useState(false);
   const [storagePremium, setStoragePremium] = useState(false);
 
-  const handlePayment = async (
-    priceId: string, 
-    setLoading: (loading: boolean) => void,
-    includeStorage: boolean
-  ) => {
+  const handlePayment = async (priceId: string, setLoading: (loading: boolean) => void, includeStorage: boolean) => {
     setLoading(true);
     try {
       const lineItems = [{ price: priceId, quantity: 1 }];
@@ -45,7 +41,7 @@ const Pricing = () => {
 
   return (
     <section id="pricing" className="py-20 sm:py-28 bg-gradient-to-b from-muted/30 to-muted/10">
-      <div className="container mx-auto">
+      <div className="container px-4 mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 via-pink-100 to-rose-100 dark:from-orange-900/30 dark:via-pink-900/30 dark:to-rose-900/30 text-xs sm:text-sm font-medium mb-4">
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-orange-500" />
@@ -54,7 +50,11 @@ const Pricing = () => {
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-            Choose the <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Perfect Plan</span> for Your Event
+            Choose the{" "}
+            <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
+              Perfect Plan
+            </span>{" "}
+            for Your Event
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
             From intimate gatherings to large celebrations, we have you covered.
@@ -288,7 +288,6 @@ const Pricing = () => {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
