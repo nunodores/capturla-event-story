@@ -1,23 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Star } from "lucide-react";
+import { Star, Upload, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const SubmitReview = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     eventType: "",
+    imageUrl: "",
     review: "",
   });
 
@@ -33,13 +34,23 @@ const SubmitReview = () => {
       return;
     }
 
-    setLoading(true);
+    if (!formData.name.trim() || !formData.eventType.trim() || !formData.review.trim()) {
+      toast({
+        title: "Missing information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const { error } = await supabase.from("testimonials").insert({
-        name: formData.name,
-        event_type: formData.eventType,
-        review: formData.review,
+        name: formData.name.trim(),
+        event_type: formData.eventType.trim(),
+        image_url: formData.imageUrl.trim() || null,
+        review: formData.review.trim(),
         rating: rating,
         is_approved: false,
       });
@@ -51,7 +62,10 @@ const SubmitReview = () => {
         description: "Thank you for your feedback. Your review will be published after approval.",
       });
 
-      navigate("/");
+      setFormData({ name: "", eventType: "", imageUrl: "", review: "" });
+      setRating(0);
+      
+      setTimeout(() => navigate("/"), 2000);
     } catch (error) {
       console.error("Error submitting review:", error);
       toast({
@@ -60,7 +74,7 @@ const SubmitReview = () => {
         variant: "destructive",
       });
     } finally {
-      setLoading(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -69,12 +83,18 @@ const SubmitReview = () => {
       <Navbar />
       <main className="flex-1 py-20 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4 max-w-2xl">
-          <div className="text-center mb-12 space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Share Your <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Experience</span>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 via-pink-100 to-rose-100 dark:from-orange-900/30 dark:via-pink-900/30 dark:to-rose-900/30 text-sm font-medium mb-4">
+              <Star className="w-4 h-4 text-orange-500 fill-orange-500" />
+              <span className="bg-gradient-to-r from-orange-600 via-pink-600 to-rose-600 bg-clip-text text-transparent">
+                Share Your Experience
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Submit Your <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Review</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              We'd love to hear about your experience with Captura!
+              Help us improve by sharing your experience with Captura
             </p>
           </div>
 
@@ -83,10 +103,11 @@ const SubmitReview = () => {
               <Label htmlFor="name">Your Name *</Label>
               <Input
                 id="name"
-                required
+                placeholder="John Doe"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="John Doe"
+                required
+                maxLength={100}
               />
             </div>
 
@@ -94,11 +115,27 @@ const SubmitReview = () => {
               <Label htmlFor="eventType">Event Type *</Label>
               <Input
                 id="eventType"
-                required
+                placeholder="e.g., Wedding in Paris, Corporate Event, Birthday Party"
                 value={formData.eventType}
                 onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
-                placeholder="e.g., Wedding, Birthday Party, Corporate Event"
+                required
+                maxLength={100}
               />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="imageUrl">Photo URL (optional)</Label>
+              <Input
+                id="imageUrl"
+                type="url"
+                placeholder="https://example.com/photo.jpg"
+                value={formData.imageUrl}
+                onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                maxLength={500}
+              />
+              <p className="text-xs text-muted-foreground">
+                Provide a URL to your photo or leave empty to use a default avatar
+              </p>
             </div>
 
             <div className="space-y-2">
@@ -129,26 +166,41 @@ const SubmitReview = () => {
               <Label htmlFor="review">Your Review *</Label>
               <Textarea
                 id="review"
-                required
+                placeholder="Tell us about your experience with Captura..."
                 value={formData.review}
                 onChange={(e) => setFormData({ ...formData, review: e.target.value })}
-                placeholder="Tell us about your experience..."
+                required
+                maxLength={1000}
                 rows={6}
+                className="resize-none"
               />
+              <p className="text-xs text-muted-foreground text-right">
+                {formData.review.length}/1000 characters
+              </p>
             </div>
 
             <Button
               type="submit"
-              disabled={loading}
               variant="hero"
               size="xl"
               className="w-full"
+              disabled={isSubmitting}
             >
-              {loading ? "Submitting..." : "Submit Review"}
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Submitting...
+                </>
+              ) : (
+                <>
+                  Submit Review
+                  <Upload className="w-5 h-5" />
+                </>
+              )}
             </Button>
 
             <p className="text-sm text-muted-foreground text-center">
-              Your review will be published after approval by our team.
+              Your review will be published after approval by our team
             </p>
           </form>
         </div>

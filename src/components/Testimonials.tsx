@@ -1,6 +1,8 @@
 import { Star, Quote } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface Testimonial {
   id: string;
@@ -26,6 +28,9 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: Testimonial; ind
           src={testimonial.image_url || defaultImage} 
           alt={testimonial.name}
           className="w-16 h-16 rounded-full object-cover border-2 border-border"
+          onError={(e) => {
+            e.currentTarget.src = defaultImage;
+          }}
         />
         <div>
           <h4 className="font-bold text-foreground">{testimonial.name}</h4>
@@ -47,22 +52,40 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: Testimonial; ind
 };
 
 const Testimonials = () => {
-  const { data: testimonials, isLoading } = useQuery({
-    queryKey: ['testimonials'],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('testimonials')
-        .select('*')
-        .eq('is_approved', true)
-        .order('created_at', { ascending: false });
-      
-      if (error) throw error;
-      return data as Testimonial[];
-    },
-  });
+  const navigate = useNavigate();
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  if (isLoading || !testimonials || testimonials.length === 0) {
-    return null;
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("testimonials")
+          .select("*")
+          .eq("is_approved", true)
+          .order("created_at", { ascending: false })
+          .limit(6);
+
+        if (error) throw error;
+        setTestimonials(data || []);
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section id="testimonials" className="py-20 sm:py-28 bg-gradient-to-b from-muted/20 to-background">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground">Loading testimonials...</p>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -72,21 +95,38 @@ const Testimonials = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 via-pink-100 to-rose-100 dark:from-orange-900/30 dark:via-pink-900/30 dark:to-rose-900/30 text-sm font-medium mb-4">
             <Star className="w-4 h-4 text-orange-500 fill-orange-500" />
             <span className="bg-gradient-to-r from-orange-600 via-pink-600 to-rose-600 bg-clip-text text-transparent">
-              Our Clients Love Us
+              Client Success Stories
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Real Events. <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Real Stories.</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            See what our clients are saying about their experience with Captura.
+            See what clients are saying about their experience with Captura
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
-          ))}
+        {testimonials.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground mb-6">Be the first to share your experience!</p>
+          </div>
+        )}
+
+        <div className="text-center">
+          <Button
+            variant="hero"
+            size="xl"
+            onClick={() => navigate("/submit-review")}
+          >
+            Share Your Experience
+            <Star className="w-5 h-5" />
+          </Button>
         </div>
       </div>
     </section>
