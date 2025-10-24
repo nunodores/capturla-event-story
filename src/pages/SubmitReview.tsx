@@ -100,6 +100,22 @@ const SubmitReview = () => {
             <p className="text-lg text-muted-foreground">Help us improve by sharing your experience with Captura</p>
           </div>
 
+          <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-orange-100/50 via-pink-100/50 to-rose-100/50 dark:from-orange-900/20 dark:via-pink-900/20 dark:to-rose-900/20 border-2 border-orange-200/50 dark:border-orange-800/30">
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                <Upload className="w-5 h-5 text-white" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-orange-600 via-pink-600 to-rose-600 bg-clip-text text-transparent">
+                  💡 Remember: Share Your Moments After the Event!
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  The magic of Captura continues <strong className="text-foreground">after your event ends</strong>. Encourage all your guests to upload their photos and videos to complete the collective memory. Every moment shared helps create a complete story that hosts can download and cherish forever. <strong className="text-foreground">Your memories matter!</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
           <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-2xl border-2 border-border bg-card">
             <div className="space-y-2">
               <Label htmlFor="name">Your Name *</Label>
