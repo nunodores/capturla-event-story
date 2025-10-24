@@ -11,6 +11,8 @@ interface EventType {
   color: string;
   bgPattern: string;
   stats?: string;
+  totalGuests?: number;
+  mediaCount?: number;
 }
 
 const eventTypes: EventType[] = [
@@ -21,7 +23,9 @@ const eventTypes: EventType[] = [
     icon: Heart,
     color: 'from-rose-400 to-pink-500',
     bgPattern: 'bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20',
-    stats: '+4 weddings'
+    stats: '+4 weddings',
+    totalGuests: 320,
+    mediaCount: 2847
   },
   {
     type: 'corporate_events',
@@ -30,7 +34,9 @@ const eventTypes: EventType[] = [
     icon: Building2,
     color: 'from-sky-400 to-blue-500',
     bgPattern: 'bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20',
-    stats: '+1 teambuilding'
+    stats: '+1 teambuilding',
+    totalGuests: 85,
+    mediaCount: 412
   },
   {
     type: 'birthday_parties',
@@ -38,7 +44,9 @@ const eventTypes: EventType[] = [
     description: 'Make birthday wishes last forever with photos and videos from all your friends.',
     icon: Cake,
     color: 'from-purple-400 to-indigo-500',
-    bgPattern: 'bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-950/20 dark:to-indigo-950/20'
+    bgPattern: 'bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-950/20 dark:to-indigo-950/20',
+    totalGuests: 156,
+    mediaCount: 892
   },
   {
     type: 'bachelor_bachelorette',
@@ -46,7 +54,9 @@ const eventTypes: EventType[] = [
     description: 'Capture all the unforgettable moments from the last big night out.',
     icon: Sparkles,
     color: 'from-amber-400 to-orange-500',
-    bgPattern: 'bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20'
+    bgPattern: 'bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
+    totalGuests: 94,
+    mediaCount: 573
   },
   {
     type: 'group_travel',
@@ -55,7 +65,9 @@ const eventTypes: EventType[] = [
     icon: Plane,
     color: 'from-teal-400 to-cyan-500',
     bgPattern: 'bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20',
-    stats: '+1 group travel'
+    stats: '+1 group travel',
+    totalGuests: 42,
+    mediaCount: 1256
   },
   {
     type: 'festivals_concerts',
@@ -63,7 +75,9 @@ const eventTypes: EventType[] = [
     description: 'Connect with fellow fans and relive the experience from every angle.',
     icon: Music,
     color: 'from-lime-400 to-green-500',
-    bgPattern: 'bg-gradient-to-br from-lime-50 to-green-50 dark:from-lime-950/20 dark:to-green-950/20'
+    bgPattern: 'bg-gradient-to-br from-lime-50 to-green-50 dark:from-lime-950/20 dark:to-green-950/20',
+    totalGuests: 203,
+    mediaCount: 1847
   },
 ];
 
@@ -85,7 +99,24 @@ const EventTypeCard = ({ event, index }: { event: EventType; index: number }) =>
     <Icon className="w-7 h-7 text-white" />
   </div>
   <h3 className="text-xl font-bold mb-2 text-foreground">{event.label}</h3>
-  <p className="text-sm text-muted-foreground leading-relaxed">{event.description}</p>
+  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{event.description}</p>
+  
+  {(event.totalGuests || event.mediaCount) && (
+    <div className="flex gap-4 justify-center text-xs">
+      {event.totalGuests && (
+        <div className="flex flex-col items-center">
+          <span className="font-bold text-foreground">{event.totalGuests}+</span>
+          <span className="text-muted-foreground">guests</span>
+        </div>
+      )}
+      {event.mediaCount && (
+        <div className="flex flex-col items-center">
+          <span className="font-bold text-foreground">{event.mediaCount}+</span>
+          <span className="text-muted-foreground">media</span>
+        </div>
+      )}
+    </div>
+  )}
 </a>
   );
 };
