@@ -9,6 +9,7 @@ import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Separator } from "@/components/ui/separator";
 
 const SubmitReview = () => {
   const navigate = useNavigate();
@@ -139,6 +140,8 @@ const SubmitReview = () => {
               </p>
             </div>
 
+            <Separator className="my-6" />
+
             <div className="space-y-2">
               <Label>Rating *</Label>
               <div className="flex gap-2">
@@ -160,6 +163,8 @@ const SubmitReview = () => {
                 ))}
               </div>
             </div>
+
+            <Separator className="my-6" />
 
             <div className="space-y-2">
               <Label htmlFor="review">Your Review *</Label>
