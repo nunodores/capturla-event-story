@@ -19,7 +19,7 @@ const Pricing = () => {
     try {
       const lineItems = [{ price: priceId, quantity: 1 }];
       if (includeStorage) {
-        lineItems.push({ price: "price_1SLjvRGonZOSamDFJnVoFlbf", quantity: 1 });
+        lineItems.push({ price: "price_1SLk6XGonZOSamDFurufJPck", quantity: 1 });
       }
 
       const { data, error } = await supabase.functions.invoke("create-payment", {
@@ -122,7 +122,7 @@ const Pricing = () => {
                 </div>
                 <div>
                   <p className="font-semibold">☁️ Storage Included</p>
-                  <p className="text-sm text-muted-foreground">for 3 months after the event</p>
+                  <p className="text-sm text-muted-foreground">for 1 month after the event</p>
                 </div>
               </div>
 
@@ -145,8 +145,8 @@ const Pricing = () => {
                   className="w-4 h-4 rounded accent-pink-500"
                 />
                 <div className="flex-1">
-                  <p className="font-semibold text-sm">+3 Months Extra Storage</p>
-                  <p className="text-xs text-muted-foreground">Add €15</p>
+                  <p className="font-semibold text-sm">+1 Month Extra Storage</p>
+                  <p className="text-xs text-muted-foreground">Add €7.99</p>
                 </div>
               </label>
             </div>
@@ -245,7 +245,7 @@ const Pricing = () => {
                 </div>
                 <div>
                   <p className="font-semibold">☁️ Storage Included</p>
-                  <p className="text-sm text-muted-foreground">for 3 months after the event</p>
+                  <p className="text-sm text-muted-foreground">for 1 month after the event</p>
                 </div>
               </div>
 
@@ -268,8 +268,8 @@ const Pricing = () => {
                   className="w-4 h-4 rounded accent-pink-500"
                 />
                 <div className="flex-1">
-                  <p className="font-semibold text-sm">+3 Months Extra Storage</p>
-                  <p className="text-xs text-muted-foreground">Add €15</p>
+                  <p className="font-semibold text-sm">+1 Month Extra Storage</p>
+                  <p className="text-xs text-muted-foreground">Add €7.99</p>
                 </div>
               </label>
             </div>
