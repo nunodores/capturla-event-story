@@ -33,10 +33,17 @@ const Hero = () => {
 
             <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-orange-100/50 via-pink-100/50 to-rose-100/50 dark:from-orange-900/20 dark:via-pink-900/20 dark:to-rose-900/20 border-2 border-orange-200/50 dark:border-orange-800/30 max-w-2xl">
               <p className="text-base sm:text-lg font-semibold text-foreground mb-2">
-                ✨ <span className="bg-gradient-to-r from-orange-600 via-pink-600 to-rose-600 bg-clip-text text-transparent">Before. During. After.</span>
+                ✨{" "}
+                <span className="bg-gradient-to-r from-orange-600 via-pink-600 to-rose-600 bg-clip-text text-transparent">
+                  Before. During. After.
+                </span>
               </p>
               <p className="text-sm sm:text-base text-muted-foreground">
-                Start collecting moments <strong>before</strong> your event, engage guests <strong>during</strong>, and most importantly—<strong className="text-foreground">relive every precious moment after.</strong> Every photo, every video, forever yours.
+                Start collecting moments <strong>before</strong> your event, engage guests <strong>during</strong>, and
+                after it’s over,{" "}
+                <strong className="text-foreground">
+                  invite everyone to share their photos and videos to complete the event’s story together.
+                </strong>
               </p>
             </div>
 
@@ -74,8 +81,6 @@ const Hero = () => {
                       className="w-full h-auto"
                     />
                   </div>
-
-                 
                 </div>
               </div>
               {/* Glow effect */}
