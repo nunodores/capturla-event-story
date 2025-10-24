@@ -7,6 +7,7 @@ import { toast } from "@/hooks/use-toast";
 const Pricing = () => {
   const [loadingBasic, setLoadingBasic] = useState(false);
   const [loadingPremium, setLoadingPremium] = useState(false);
+  const [loadingStorage, setLoadingStorage] = useState(false);
 
   const handlePayment = async (priceId: string, setLoading: (loading: boolean) => void) => {
     setLoading(true);
@@ -257,8 +258,18 @@ const Pricing = () => {
                 <p className="font-semibold text-sm sm:text-base">+3 Months Extra Storage</p>
                 <p className="text-xs sm:text-sm text-muted-foreground">Extend your event duration and keep your memories longer</p>
               </div>
-              <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent whitespace-nowrap">
-                €15
+              <div className="flex items-center gap-4">
+                <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent whitespace-nowrap">
+                  €15
+                </div>
+                <Button
+                  variant="hero"
+                  size="default"
+                  onClick={() => handlePayment("price_1SLjvRGonZOSamDFJnVoFlbf", setLoadingStorage)}
+                  disabled={loadingStorage}
+                >
+                  {loadingStorage ? "Loading..." : "Add"}
+                </Button>
               </div>
             </div>
           </div>
