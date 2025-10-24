@@ -7,13 +7,23 @@ import { toast } from "@/hooks/use-toast";
 const Pricing = () => {
   const [loadingBasic, setLoadingBasic] = useState(false);
   const [loadingPremium, setLoadingPremium] = useState(false);
-  const [loadingStorage, setLoadingStorage] = useState(false);
+  const [storageBasic, setStorageBasic] = useState(false);
+  const [storagePremium, setStoragePremium] = useState(false);
 
-  const handlePayment = async (priceId: string, setLoading: (loading: boolean) => void) => {
+  const handlePayment = async (
+    priceId: string, 
+    setLoading: (loading: boolean) => void,
+    includeStorage: boolean
+  ) => {
     setLoading(true);
     try {
+      const lineItems = [{ price: priceId, quantity: 1 }];
+      if (includeStorage) {
+        lineItems.push({ price: "price_1SLjvRGonZOSamDFJnVoFlbf", quantity: 1 });
+      }
+
       const { data, error } = await supabase.functions.invoke("create-payment", {
-        body: { priceId },
+        body: { lineItems },
       });
 
       if (error) throw error;
@@ -126,12 +136,27 @@ const Pricing = () => {
               </div>
             </div>
 
+            <div className="mb-4 p-3 rounded-lg bg-background/50 border border-border">
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={storageBasic}
+                  onChange={(e) => setStorageBasic(e.target.checked)}
+                  className="w-4 h-4 rounded accent-pink-500"
+                />
+                <div className="flex-1">
+                  <p className="font-semibold text-sm">+3 Months Extra Storage</p>
+                  <p className="text-xs text-muted-foreground">Add €15</p>
+                </div>
+              </label>
+            </div>
+
             <div className="text-center">
               <Button
                 variant="hero"
                 size="xl"
                 className="group w-full"
-                onClick={() => handlePayment("price_1SLPJ6GonZOSamDFwONRyJEB", setLoadingBasic)}
+                onClick={() => handlePayment("price_1SLPJ6GonZOSamDFwONRyJEB", setLoadingBasic, storageBasic)}
                 disabled={loadingBasic}
               >
                 {loadingBasic ? "Opening Checkout..." : "Get Started"}
@@ -234,12 +259,27 @@ const Pricing = () => {
               </div>
             </div>
 
+            <div className="mb-4 p-3 rounded-lg bg-background/50 border border-border">
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={storagePremium}
+                  onChange={(e) => setStoragePremium(e.target.checked)}
+                  className="w-4 h-4 rounded accent-pink-500"
+                />
+                <div className="flex-1">
+                  <p className="font-semibold text-sm">+3 Months Extra Storage</p>
+                  <p className="text-xs text-muted-foreground">Add €15</p>
+                </div>
+              </label>
+            </div>
+
             <div className="text-center">
               <Button
                 variant="hero"
                 size="xl"
                 className="group w-full"
-                onClick={() => handlePayment("price_1SL4saGonZOSamDFmfUsWreB", setLoadingPremium)}
+                onClick={() => handlePayment("price_1SL4saGonZOSamDFmfUsWreB", setLoadingPremium, storagePremium)}
                 disabled={loadingPremium}
               >
                 {loadingPremium ? "Opening Checkout..." : "Start Sharing!"}
@@ -249,31 +289,6 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* Additional Option */}
-        <div className="max-w-2xl mx-auto px-4">
-          <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-border bg-gradient-to-br from-card to-muted/20">
-            <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-center">⚙️ Additional Option</h4>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background/50">
-              <div className="flex-1">
-                <p className="font-semibold text-sm sm:text-base">+3 Months Extra Storage</p>
-                <p className="text-xs sm:text-sm text-muted-foreground">Extend your event duration and keep your memories longer</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent whitespace-nowrap">
-                  €15
-                </div>
-                <Button
-                  variant="hero"
-                  size="default"
-                  onClick={() => handlePayment("price_1SLjvRGonZOSamDFJnVoFlbf", setLoadingStorage)}
-                  disabled={loadingStorage}
-                >
-                  {loadingStorage ? "Loading..." : "Add"}
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
