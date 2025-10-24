@@ -19,7 +19,7 @@ const Index = () => {
         <PainPoints />
         <Features />
         <VideoDemo />
-        <GuestReminder />
+
         <EventTypes />
         <Testimonials />
         <Pricing />
