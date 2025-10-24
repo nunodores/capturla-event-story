@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AboutPage from "./pages/About";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import SubmitReview from "./pages/SubmitReview";
 import ScrollToHash from "./components/ScrollToHash";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/submit-review" element={<SubmitReview />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
