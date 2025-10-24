@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import PainPoints from "@/components/PainPoints";
 import Features from "@/components/Features";
 import VideoDemo from "@/components/VideoDemo";
+import GuestReminder from "@/components/GuestReminder";
 import EventTypes from "@/components/EventTypes";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
@@ -18,6 +19,7 @@ const Index = () => {
         <PainPoints />
         <Features />
         <VideoDemo />
+        <GuestReminder />
         <EventTypes />
         <Testimonials />
         <Pricing />
