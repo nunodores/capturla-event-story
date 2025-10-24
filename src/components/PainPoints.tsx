@@ -26,7 +26,7 @@ const solutions = [
 
 const PainPoints = () => {
   return (
-    <section className="py-20 sm:py-28 px-2 bg-gradient-to-b from-muted/10 to-background">
+    <section className="py-20 sm:py-28 bg-gradient-to-b from-muted/10 to-background">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12 md:mb-16 space-y-4 sm:space-y-6 ">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
