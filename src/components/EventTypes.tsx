@@ -10,6 +10,7 @@ interface EventType {
   icon: ElementType;
   color: string;
   bgPattern: string;
+  stats?: string;
 }
 
 const eventTypes: EventType[] = [
@@ -19,7 +20,8 @@ const eventTypes: EventType[] = [
     description: 'Cherish every moment of your special day with a shared, interactive album.',
     icon: Heart,
     color: 'from-rose-400 to-pink-500',
-    bgPattern: 'bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20'
+    bgPattern: 'bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20',
+    stats: '+4 weddings'
   },
   {
     type: 'corporate_events',
@@ -27,7 +29,8 @@ const eventTypes: EventType[] = [
     description: 'Boost engagement at conferences, off-sites, and team-building retreats.',
     icon: Building2,
     color: 'from-sky-400 to-blue-500',
-    bgPattern: 'bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20'
+    bgPattern: 'bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20',
+    stats: '+1 teambuilding'
   },
   {
     type: 'birthday_parties',
@@ -51,7 +54,8 @@ const eventTypes: EventType[] = [
     description: 'Consolidate everyone\'s travel photos into one amazing trip itinerary.',
     icon: Plane,
     color: 'from-teal-400 to-cyan-500',
-    bgPattern: 'bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20'
+    bgPattern: 'bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20',
+    stats: '+1 group travel'
   },
   {
     type: 'festivals_concerts',
@@ -72,6 +76,11 @@ const EventTypeCard = ({ event, index }: { event: EventType; index: number }) =>
   className={`group relative flex flex-col items-center text-center p-6 rounded-2xl border border-border/80 transition-all duration-300 ease-in-out animate-fade-in hover:shadow-lg hover:border-border hover:-translate-y-1 ${event.bgPattern} w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.33%-1rem)] max-w-sm`}
   style={{ animationDelay: `${index * 100}ms`, willChange: 'transform' }}
 >
+  {event.stats && (
+    <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 text-white text-xs font-semibold">
+      {event.stats}
+    </div>
+  )}
   <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${event.color} mb-4 shadow-md group-hover:scale-110 transition-transform`}>
     <Icon className="w-7 h-7 text-white" />
   </div>
