@@ -102,8 +102,8 @@ const EventTypeCard = ({ event, index }: { event: EventType; index: number }) =>
       </div>
       <h3 className="text-xl font-bold mb-2 text-foreground">{event.label}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed mb-4">{event.description}</p>
-      /*{" "}
-      {(event.totalGuests || event.mediaCount) && (
+
+      {false && (event.totalGuests || event.mediaCount) && (
         <div className="flex gap-4 justify-center text-xs">
           {event.totalGuests && (
             <div className="flex flex-col items-center">
@@ -118,8 +118,7 @@ const EventTypeCard = ({ event, index }: { event: EventType; index: number }) =>
             </div>
           )}
         </div>
-      )}{" "}
-      */
+      )}
     </a>
   );
 };
