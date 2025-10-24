@@ -94,7 +94,7 @@ const PaymentSuccess = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 py-20 bg-gradient-to-b from-background to-muted/20">
+      <main className="flex-1 py-32 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4 max-w-2xl">
           <Card className="p-8 md:p-12">
             <div className="text-center mb-8">
