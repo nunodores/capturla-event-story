@@ -44,7 +44,7 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="py-20  bg-gradient-to-b from-background to-muted/20">
+    <section id="pricing" className="py-20 sm:py-28 bg-gradient-to-b from-muted/30 to-muted/10">
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 via-pink-100 to-rose-100 dark:from-orange-900/30 dark:via-pink-900/30 dark:to-rose-900/30 text-xs sm:text-sm font-medium mb-4">

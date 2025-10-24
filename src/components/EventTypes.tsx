@@ -126,7 +126,7 @@ const EventTypeCard = ({ event, index }: { event: EventType; index: number }) =>
 // 3. MAIN COMPONENT
 const EventTypes = () => {
   return (
-    <section id="events" className="py-20 sm:py-28 bg-gradient-to-b from-background to-muted/20">
+    <section id="events" className="py-20 sm:py-28 bg-gradient-to-b from-muted/10 to-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">

@@ -5,7 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 const CTA = () => {
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-background to-muted/20">
+    <section id="contact" className="py-20 sm:py-28 bg-gradient-to-b from-muted/10 to-background">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-8 sm:mb-12 space-y-4 sm:space-y-6 ">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">

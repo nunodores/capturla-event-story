@@ -15,7 +15,7 @@ const hostFeatures = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-20">
+    <section id="features" className="py-20 sm:py-28 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
           Made for <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Guests</span> &{" "}
