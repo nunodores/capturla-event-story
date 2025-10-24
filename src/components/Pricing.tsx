@@ -5,9 +5,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
 const Pricing = () => {
-  const [loading, setLoading] = useState(false);
+  const [loadingBasic, setLoadingBasic] = useState(false);
+  const [loadingPremium, setLoadingPremium] = useState(false);
 
-  const handlePayment = async (priceId: string) => {
+  const handlePayment = async (priceId: string, setLoading: (loading: boolean) => void) => {
     setLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke("create-payment", {
@@ -129,10 +130,10 @@ const Pricing = () => {
                 variant="hero"
                 size="xl"
                 className="group w-full"
-                onClick={() => handlePayment("price_1SLPJ6GonZOSamDFwONRyJEB")}
-                disabled={loading}
+                onClick={() => handlePayment("price_1SLPJ6GonZOSamDFwONRyJEB", setLoadingBasic)}
+                disabled={loadingBasic}
               >
-                {loading ? "Opening Checkout..." : "Get Started"}
+                {loadingBasic ? "Opening Checkout..." : "Get Started"}
                 <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               </Button>
             </div>
@@ -237,10 +238,10 @@ const Pricing = () => {
                 variant="hero"
                 size="xl"
                 className="group w-full"
-                onClick={() => handlePayment("price_1SL4saGonZOSamDFmfUsWreB")}
-                disabled={loading}
+                onClick={() => handlePayment("price_1SL4saGonZOSamDFmfUsWreB", setLoadingPremium)}
+                disabled={loadingPremium}
               >
-                {loading ? "Opening Checkout..." : "Start Sharing!"}
+                {loadingPremium ? "Opening Checkout..." : "Start Sharing!"}
                 <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               </Button>
             </div>
