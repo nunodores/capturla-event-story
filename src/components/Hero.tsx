@@ -31,6 +31,15 @@ const Hero = () => {
               games, and build a collective story of your event—all in one secure, beautiful place.
             </p>
 
+            <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-orange-100/50 via-pink-100/50 to-rose-100/50 dark:from-orange-900/20 dark:via-pink-900/20 dark:to-rose-900/20 border-2 border-orange-200/50 dark:border-orange-800/30 max-w-2xl">
+              <p className="text-base sm:text-lg font-semibold text-foreground mb-2">
+                ✨ <span className="bg-gradient-to-r from-orange-600 via-pink-600 to-rose-600 bg-clip-text text-transparent">Before. During. After.</span>
+              </p>
+              <p className="text-sm sm:text-base text-muted-foreground">
+                Start collecting moments <strong>before</strong> your event, engage guests <strong>during</strong>, and most importantly—<strong className="text-foreground">relive every precious moment after.</strong> Every photo, every video, forever yours.
+              </p>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <a href="#pricing">
                 <Button variant="hero" size="xl" className="group">
