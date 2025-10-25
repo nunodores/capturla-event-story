@@ -5,10 +5,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
 const Pricing = () => {
-  const [loadingBasic, setLoadingBasic] = useState(false);
-  const [loadingPremium, setLoadingPremium] = useState(false);
-  const [storageBasic, setStorageBasic] = useState(false);
-  const [storagePremium, setStoragePremium] = useState(false);
+  const [loadingMini, setLoadingMini] = useState(false);
+  const [loadingClassic, setLoadingClassic] = useState(false);
+  const [loadingGrand, setLoadingGrand] = useState(false);
+  const [storageMini, setStorageMini] = useState(false);
+  const [storageClassic, setStorageClassic] = useState(false);
+  const [storageGrand, setStorageGrand] = useState(false);
 
   const handlePayment = async (priceId: string, setLoading: (loading: boolean) => void, includeStorage: boolean) => {
     setLoading(true);
@@ -50,11 +52,10 @@ const Pricing = () => {
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-            Choose the{" "}
+            💫{" "}
             <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
-              Perfect Plan
-            </span>{" "}
-            for Your Event
+              Captura Event Packs
+            </span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
             From intimate gatherings to large celebrations, we have you covered.
@@ -62,18 +63,18 @@ const Pricing = () => {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="max-w-6xl mx-auto mb-8 sm:mb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          {/* Basic Tier */}
+        <div className="max-w-7xl mx-auto mb-8 sm:mb-12 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Mini Event Tier */}
           <div className="relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 border-border bg-gradient-to-br from-card to-muted/20 hover:shadow-xl transition-all duration-500">
             <div className="text-center mb-6">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-2">✨ Basic</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">🎈 Mini Event</h3>
               <div className="flex items-baseline justify-center gap-2 mb-4">
                 <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
-                  €49
+                  €29
                 </span>
                 <span className="text-lg sm:text-xl text-muted-foreground">/ event</span>
               </div>
-              <p className="text-sm sm:text-base text-muted-foreground">(one-time payment)</p>
+              <p className="text-sm sm:text-base text-muted-foreground">Perfect for birthdays, family dinners, or intimate celebrations.</p>
             </div>
 
             <div className="space-y-4 mb-6">
@@ -82,7 +83,7 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">👥 Up to 50 Guests</p>
+                  <p className="font-semibold">👥 Up to 25 Guests</p>
                 </div>
               </div>
 
@@ -92,7 +93,7 @@ const Pricing = () => {
                 </div>
                 <div>
                   <p className="font-semibold">📸 Instant Photo & Video Sharing</p>
-                  <p className="text-sm text-muted-foreground">(original quality, no compression)</p>
+                  <p className="text-sm text-muted-foreground">(original quality)</p>
                 </div>
               </div>
 
@@ -101,8 +102,7 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">🎨 Custom Visual Theme</p>
-                  <p className="text-sm text-muted-foreground">(colors and design tailored to your event)</p>
+                  <p className="font-semibold">🎨 One Visual Theme Included</p>
                 </div>
               </div>
 
@@ -111,8 +111,7 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">🗓️ Full Admin Access</p>
-                  <p className="text-sm text-muted-foreground">management, analytics, media download</p>
+                  <p className="font-semibold">👑 Admin Access & Downloads</p>
                 </div>
               </div>
 
@@ -121,17 +120,7 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">☁️ Storage Included</p>
-                  <p className="text-sm text-muted-foreground">for 1 month after the event</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
-                  <Check className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold">💬 Email Customer Support</p>
+                  <p className="font-semibold">💾 1 Month Storage</p>
                 </div>
               </div>
             </div>
@@ -140,13 +129,13 @@ const Pricing = () => {
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={storageBasic}
-                  onChange={(e) => setStorageBasic(e.target.checked)}
+                  checked={storageMini}
+                  onChange={(e) => setStorageMini(e.target.checked)}
                   className="w-4 h-4 rounded accent-pink-500"
                 />
                 <div className="flex-1">
-                  <p className="font-semibold text-sm">+1 Month Extra Storage</p>
-                  <p className="text-xs text-muted-foreground">Add €7.99</p>
+                  <p className="font-semibold text-sm">🧩 Add 3 Extra Months</p>
+                  <p className="text-xs text-muted-foreground">Add €9.99</p>
                 </div>
               </label>
             </div>
@@ -156,30 +145,139 @@ const Pricing = () => {
                 variant="hero"
                 size="xl"
                 className="group w-full"
-                onClick={() => handlePayment("price_1SLPJ6GonZOSamDFwONRyJEB", setLoadingBasic, storageBasic)}
-                disabled={loadingBasic}
+                onClick={() => handlePayment("price_1SLPJ6GonZOSamDFwONRyJEB", setLoadingMini, storageMini)}
+                disabled={loadingMini}
               >
-                {loadingBasic ? "Opening Checkout..." : "Get Started"}
+                {loadingMini ? "Opening Checkout..." : "Get Started"}
                 <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               </Button>
             </div>
           </div>
 
-          {/* Premium Tier */}
+          {/* Classic Event Tier */}
           <div className="relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 border-border bg-gradient-to-br from-card to-muted/20 hover:shadow-2xl transition-all duration-500">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 text-white text-sm font-semibold">
               Recommended
             </div>
 
             <div className="text-center mb-6">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-2">💎 Premium</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">🌟 Classic Event</h3>
               <div className="flex items-baseline justify-center gap-2 mb-4">
                 <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
-                  €69
+                  €59
                 </span>
                 <span className="text-lg sm:text-xl text-muted-foreground">/ event</span>
               </div>
-              <p className="text-sm sm:text-base text-muted-foreground">(one-time payment)</p>
+              <p className="text-sm sm:text-base text-muted-foreground">The ideal choice for weddings, team events, and parties.</p>
+            </div>
+
+            <div className="space-y-4 mb-6">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold">👥 Up to 100 Guests</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold">📸 Instant Photo & Video Sharing</p>
+                  <p className="text-sm text-muted-foreground">(original quality)</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold">🎨 Custom Visual Theme</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold">🧩 Fun Games</p>
+                  <p className="text-sm text-muted-foreground">Quiz, hashtag challenge & timeline</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold">👑 Full Admin Access & Analytics</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold">💾 1 Month Storage</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold">💌 Email Support</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-4 p-3 rounded-lg bg-background/50 border border-border">
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={storageClassic}
+                  onChange={(e) => setStorageClassic(e.target.checked)}
+                  className="w-4 h-4 rounded accent-pink-500"
+                />
+                <div className="flex-1">
+                  <p className="font-semibold text-sm">🧩 Add 3 Extra Months</p>
+                  <p className="text-xs text-muted-foreground">Add €9.99</p>
+                </div>
+              </label>
+            </div>
+
+            <div className="text-center">
+              <Button
+                variant="hero"
+                size="xl"
+                className="group w-full"
+                onClick={() => handlePayment("price_1SL4saGonZOSamDFmfUsWreB", setLoadingClassic, storageClassic)}
+                disabled={loadingClassic}
+              >
+                {loadingClassic ? "Opening Checkout..." : "Start Sharing!"}
+                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Grand Event Tier */}
+          <div className="relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 border-border bg-gradient-to-br from-card to-muted/20 hover:shadow-2xl transition-all duration-500">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">💎 Grand Event</h3>
+              <div className="flex items-baseline justify-center gap-2 mb-4">
+                <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
+                  €89
+                </span>
+                <span className="text-lg sm:text-xl text-muted-foreground">/ event</span>
+              </div>
+              <p className="text-sm sm:text-base text-muted-foreground">For big weddings, festivals, and unforgettable experiences.</p>
             </div>
 
             <div className="space-y-4 mb-6">
@@ -198,7 +296,7 @@ const Pricing = () => {
                 </div>
                 <div>
                   <p className="font-semibold">📸 Instant Photo & Video Sharing</p>
-                  <p className="text-sm text-muted-foreground">(original quality, no compression)</p>
+                  <p className="text-sm text-muted-foreground">(no compression)</p>
                 </div>
               </div>
 
@@ -207,8 +305,7 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">🎨 Custom Visual Theme</p>
-                  <p className="text-sm text-muted-foreground">(colors and design tailored to your event)</p>
+                  <p className="font-semibold">🎨 Custom Design + Branded Theme</p>
                 </div>
               </div>
 
@@ -217,8 +314,7 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">🗓️ Full Admin Access</p>
-                  <p className="text-sm text-muted-foreground">management, analytics, media download</p>
+                  <p className="font-semibold">🕹️ All Interactive Games Included</p>
                 </div>
               </div>
 
@@ -227,15 +323,7 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">🎮 All Games Included:</p>
-                  <ul className="text-sm text-muted-foreground mt-2 space-y-1 ml-4">
-                    <li>• Interactive Quizzes</li>
-                    <li>• Hashtag Challenges</li>
-                    <li>• Love Story Timeline</li>
-                    <li>• Music Requests (Spotify)</li>
-                    <li>• Event Schedule</li>
-                    <li>• People Bingo (Icebreaker)</li>
-                  </ul>
+                  <p className="font-semibold">🎶 Spotify Music Requests</p>
                 </div>
               </div>
 
@@ -244,8 +332,7 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">☁️ Storage Included</p>
-                  <p className="text-sm text-muted-foreground">for 1 month after the event</p>
+                  <p className="font-semibold">🗓️ Event Schedule</p>
                 </div>
               </div>
 
@@ -254,24 +341,27 @@ const Pricing = () => {
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="font-semibold">💬 Email Customer Support</p>
+                  <p className="font-semibold">👑 Full Admin Access</p>
                 </div>
               </div>
-            </div>
 
-            <div className="mb-4 p-3 rounded-lg bg-background/50 border border-border">
-              <label className="flex items-center gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={storagePremium}
-                  onChange={(e) => setStoragePremium(e.target.checked)}
-                  className="w-4 h-4 rounded accent-pink-500"
-                />
-                <div className="flex-1">
-                  <p className="font-semibold text-sm">+1 Month Extra Storage</p>
-                  <p className="text-xs text-muted-foreground">Add €7.99</p>
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
                 </div>
-              </label>
+                <div>
+                  <p className="font-semibold">💾 3 Months Storage</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 via-pink-400 to-rose-400 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold">💬 Priority Support</p>
+                </div>
+              </div>
             </div>
 
             <div className="text-center">
@@ -279,10 +369,10 @@ const Pricing = () => {
                 variant="hero"
                 size="xl"
                 className="group w-full"
-                onClick={() => handlePayment("price_1SL4saGonZOSamDFmfUsWreB", setLoadingPremium, storagePremium)}
-                disabled={loadingPremium}
+                onClick={() => handlePayment("price_1SL4saGonZOSamDFmfUsWreB", setLoadingGrand, storageGrand)}
+                disabled={loadingGrand}
               >
-                {loadingPremium ? "Opening Checkout..." : "Start Sharing!"}
+                {loadingGrand ? "Opening Checkout..." : "Go Grand!"}
                 <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               </Button>
             </div>
